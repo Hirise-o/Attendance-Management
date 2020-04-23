@@ -1,0 +1,2 @@
+class MsHiriseStaff < ApplicationRecord
+end

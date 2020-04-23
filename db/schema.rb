@@ -10,11 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_090754) do
+ActiveRecord::Schema.define(version: 2020_04_23_074616) do
+
+  create_table "ms_hirise_staffs", force: :cascade do |t|
+    t.integer "staff_no"
+    t.string "staff_name"
+    t.datetime "insert_datetime"
+    t.datetime "update_datetime"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "staffs", force: :cascade do |t|
     t.string "staff_no"
     t.string "staff_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tr_contact_histories", force: :cascade do |t|
+    t.integer "staff_no"
+    t.datetime "contact_datetime"
+    t.datetime "insert_datetime"
+    t.datetime "update_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

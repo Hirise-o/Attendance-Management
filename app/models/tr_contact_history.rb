@@ -1,0 +1,2 @@
+class TrContactHistory < ApplicationRecord
+end
