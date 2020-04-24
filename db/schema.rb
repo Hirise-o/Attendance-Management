@@ -12,7 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
-  create_table "ms_hirise_staffs", primary_key: "staff_no", force: :cascade do |t|
+  create_table "ms_hirise_staffs", id: false, force: :cascade do |t|
+    t.integer "staff_no"
     t.string "staff_name"
     t.datetime "insert_datetime"
     t.datetime "update_datetime"
@@ -22,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
   create_table "tr_contact_histories", primary_key: "unique_id", force: :cascade do |t|
     t.integer "staff_no"
-    t.datetime "contact_datetime"
+    t.datetime "contact_datetime", null: false
     t.datetime "insert_datetime"
     t.datetime "update_datetime"
     t.datetime "created_at", null: false
