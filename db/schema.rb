@@ -12,9 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
-  create_table "ms_hirise_staffs", force: :cascade do |t|
-    t.integer "staff_no"
-    t.string "staff_name"
+  create_table "ms_hirise_staffs", id: false, force: :cascade do |t|
+    t.string "staff_no", limit: 4
+    t.string "staff_name", limit: 72
     t.datetime "insert_datetime"
     t.datetime "update_datetime"
     t.datetime "created_at", null: false
