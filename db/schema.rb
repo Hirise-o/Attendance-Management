@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
-  create_table "ms_hirise_staffs", id: false, force: :cascade do |t|
+  create_table "ms_hirise_staffs", force: :cascade do |t|
     t.integer "staff_no"
     t.string "staff_name"
     t.datetime "insert_datetime"

@@ -4,4 +4,5 @@ class MsHiriseStaff < ApplicationRecord
   self.primary_ker = "staff_no"
 
   validates :staff_no, length: {maximum: 4}
+  validates :staff_name, length: {maximum: 72}
 end
