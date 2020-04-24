@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_074616) do
   end
 
   create_table "tr_contact_histories", primary_key: "unique_id", force: :cascade do |t|
-    t.integer "staff_no"
+    t.integer "staff_no", limit: 4
     t.datetime "contact_datetime", null: false
     t.datetime "insert_datetime"
     t.datetime "update_datetime"
