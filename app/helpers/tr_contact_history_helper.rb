@@ -1,0 +1,2 @@
+module TrContactHistoryHelper
+end

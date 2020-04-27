@@ -1,0 +1,9 @@
+<h1>社員名を選択し、連絡ボタンを押下してください</h1>
+
+<div>
+  <p>連絡年月日 : <%= @today %></p>
+</div>
+
+<%= form_for @ms_hirise_staff do |f| %>
+<p>社員名<%= f.select :faculty, [["user01", "user01"], ["user02", "user02"]], include_blank: "選択してください" %></p>
+<% end %>
