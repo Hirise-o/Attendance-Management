@@ -4,6 +4,7 @@
   <p>連絡年月日 : <%= @today %></p>
 </div>
 
-<%= form_for @ms_hirise_staff do |f| %>
-<p>社員名<%= f.select :faculty, [["user01", "user01"], ["user02", "user02"]], include_blank: "選択してください" %></p>
-<% end %>
+<div>
+  <p>社員名：<%= select_tag :staff_id, options_from_collection_for_select(MsHiriseStaff.all, :staff_no, :staff_name) %>
+  </p>
+</div>

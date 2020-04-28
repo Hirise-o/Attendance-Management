@@ -14,8 +14,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
   create_table "ms_hirise_staffs", primary_key: "staff_no", id: :string, limit: 4, force: :cascade do |t|
     t.string "staff_name", limit: 72
-    t.datetime "insert_datetime"
-    t.datetime "update_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,8 +22,6 @@ ActiveRecord::Schema.define(version: 2020_04_23_074616) do
     t.string "staff_no", limit: 4
     t.datetime "contact_datetime", null: false
     t.integer "contact_registration_type"
-    t.datetime "insert_datetime"
-    t.datetime "update_datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
