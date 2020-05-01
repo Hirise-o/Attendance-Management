@@ -1,10 +1,12 @@
 <h1>社員名を選択し、連絡ボタンを押下してください</h1>
 
 <div>
-  <p>連絡年月日 : <%= @today %></p>
-</div>
-
-<div>
-  <p>社員名：<%= select_tag :staff_id, options_from_collection_for_select(MsHiriseStaff.all, :staff_no, :staff_name) %>
+  <p><%#= button_to "連絡", {controller: 'tr_contact_history', action: 'main'} %></p>
+  <p>
+    <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
+      <p>連絡年月日 : <%= @today %></p>
+       <p>社員名：<%= f.collection_select(:staff_no, @staffs, :staff_no, :staff_name) %></p>
+      <%= f.submit %>
+    <% end %>
   </p>
 </div>

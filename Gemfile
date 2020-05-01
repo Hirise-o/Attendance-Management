@@ -71,3 +71,5 @@ group :production, :staging do
 end
 
 gem 'dotenv-rails'
+
+gem 'activesupport'
