@@ -12,11 +12,11 @@ class TrContactHistoryController < ApplicationController
     tr_contact_history = TrContactHistory.new(tr_params)
     if @today.present?
       tr_contact_history.contact_registration_type = 2
-      tr_contact_history.contact_datetime =Date.today
+      tr_contact_history.contact_datetime = Date.today
       tr_contact_history.save
     else
       tr_contact_history.contact_registration_type = 1
-      tr_contact_history.contact_datetime =Date.today
+      tr_contact_history.contact_datetime = Date.today
       tr_contact_history.save
     end
     redirect_to '/top'

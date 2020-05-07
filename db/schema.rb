@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_04_23_074616) do
 
-  create_table "ms_hirise_staffs", primary_key: "staff_no", id: :string, limit: 4, force: :cascade do |t|
+  create_table "ms_hirise_staffs", primary_key: "staff_no", id: :string, limit: 4, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "staff_name", limit: 72
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tr_contact_histories", primary_key: "unique_id", force: :cascade do |t|
+  create_table "tr_contact_histories", primary_key: "unique_id", id: :bigint, unsigned: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "staff_no", limit: 4
     t.datetime "contact_datetime", null: false
     t.integer "contact_registration_type"
