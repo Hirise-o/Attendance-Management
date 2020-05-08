@@ -11,12 +11,13 @@ class TrContactHistoryController < ApplicationController
   def create
     # byebug
     tr_contact_history = TrContactHistory.new({**tr_params, contact_datetime: Date.today, contact_registration_type: 1,created_at: Date.today, updated_at: Date.today})
-    tr_contact_history.save
-    redirect_to '/top'
+    tr_contact_history.save!
+    redirect_to '/main'
   end
 
   private
   def tr_params
-      { staff_no: params[:staff_no]}
+      params.permit(:staff_no)
+     # { staff_no: params[:staff_no]}
   end
 end
