@@ -9,21 +9,14 @@ class TrContactHistoryController < ApplicationController
   end
 
   def create
-    tr_contact_history = TrContactHistory.new(tr_params)
-    if @today.present?
-      tr_contact_history.contact_registration_type = 2
-      tr_contact_history.contact_datetime = Date.today
-      tr_contact_history.save
-    else
-      tr_contact_history.contact_registration_type = 1
-      tr_contact_history.contact_datetime = Date.today
-      tr_contact_history.save
-    end
+    # byebug
+    tr_contact_history = TrContactHistory.new({**tr_params, contact_datetime: Date.today, contact_registration_type: 1,created_at: Date.today, updated_at: Date.today})
+    tr_contact_history.save
     redirect_to '/top'
   end
 
   private
   def tr_params
-      params.permit(:staff_no, :contact_registration_type, :contact_datetime, Date.today)
+      { staff_no: params[:staff_no]}
   end
 end
