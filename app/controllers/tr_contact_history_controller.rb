@@ -10,14 +10,20 @@ class TrContactHistoryController < ApplicationController
 
   def create
     # byebug
-    tr_contact_history = TrContactHistory.new({**tr_params, contact_datetime: Date.today, contact_registration_type: 1,created_at: Date.today, updated_at: Date.today})
-    tr_contact_history.save!
+    tr_contact_history = TrContactHistory.new(tr_params)
+    if TrContactHistory.where(create_at: Date.today)
+      # 値を更新するメソッド
+    tr_contact_history.assign_attributes({contact_datetime: Time.now, contact_registration_type: 2, created_at: Date.today, updated_at: Time.now})
+     else
+      tr_contact_history.assign_attributes({contact_datetime: Time.now, contact_registration_type: 1, created_at: Date.today, updated_at: Time.now})
+     end
+     tr_contact_history.save!
     redirect_to '/main'
   end
 
   private
   def tr_params
-      params.permit(:staff_no)
-     # { staff_no: params[:staff_no]}
+      params.require(:tr_contact_history).permit(:ms_hirise_staff_id)
+      # { ms_hirise_staff_id: params[:ms_hirise_staff_id]}
   end
 end

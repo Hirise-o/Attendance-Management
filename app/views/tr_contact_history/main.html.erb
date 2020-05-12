@@ -5,7 +5,7 @@
   <p>
     <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
       <p>連絡年月日 : <%= @today %></p>
-       <p>社員名：<%= f.collection_select(:staff_no, @staffs, :staff_no, :staff_name) %></p>
+       <p>社員名：<%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :staff_name) %></p>
       <%= f.submit "連絡", class: "btn btn-xs btn-primary"%>
     <% end %>
   </p>
