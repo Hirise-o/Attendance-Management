@@ -1,12 +1,36 @@
-<h1>社員名を選択し、連絡ボタンを押下してください</h1>
+<!DOCTYPE html>
 
-<div>
-  <p><%#= button_to "連絡", {controller: 'tr_contact_history', action: 'main'} %></p>
-  <p>
-    <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
-      <p>連絡年月日 : <%= @today %></p>
-       <p>社員名：<%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :staff_name) %></p>
-      <%= f.submit "連絡", class: "btn btn-xs btn-primary"%>
-    <% end %>
-  </p>
-</div>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheets" href="tr_contact_history.scss">
+    <title>出退勤管理システム(Hirise)</title>
+  </head>
+
+    <body>
+      <div class="header1">
+        
+      </div>
+      <div class="header2">
+        
+      </div>
+      <div class="header3">
+        
+      </div>
+
+      <div class="main">
+        <p>社員名を選択し、連絡ボタンを押下してください</p><br>
+            <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
+              <p>♦︎ 連絡年月日 ： 　<%= @today %></p><br>
+              <div style="float:left;">♦︎ 社員名　　 ： 　</div>
+                <div class="cp_ipselect cp_sl01" style="float:left;"><%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :staff_name) %></div>
+              <div style="clear: both;">
+                <button type="f.submit" class="btn-square">連　絡</button>
+              </div>
+            <% end %>
+      </div>
+
+    </body>
+
+</html>
