@@ -71,7 +71,7 @@ group :production do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '5.5.4'
 end
 
 gem 'dotenv-rails'
