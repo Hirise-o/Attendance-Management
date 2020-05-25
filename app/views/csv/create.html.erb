@@ -4,12 +4,12 @@
 
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheets" href="tr_contact_history.scss">
+    <link rel="stylesheets" href="csv.scss">
     <title>出退勤管理システム(Hirise)</title>
   </head>
 
-    <body>
-      <div class="header1">
+  <body>
+    <div class="header1">
         <%= image_tag 'image7.png', :size=>'150x70' %>
         <span style="font-size: 200%; vertical-align: 20px;">ハイライズ株式会社　　</span>
         <span style="font-size: 120%; vertical-align: 20px;">社内システム</span>
@@ -55,22 +55,14 @@
         <%= link_to '出退勤管理画面', '/main', class: 'class', method: :get %><br>
         <%= link_to '出退勤CSV出力', '/csv', class: 'class', method: :get %>
       </div>
-
-      <div class="main">
-        <p>社員名を選択し、連絡ボタンを押下してください</p><br>
-            <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
-              <p>♦︎ 連絡年月日 ： 　<%= @today %></p><br>
-              <div style="float:left;">♦︎ 社員名　　 ： 　</div>
-                <div class="cp_ipselect cp_sl01" style="float:left;"><%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :staff_name) %></div>
-              <div style="clear: both;">
-                <button type="f.submit" class="btn-square">連　絡</button>
-              </div>
-            <% end %>
+      <div>
+        <%= form_tag tr_contact_history_csv_path(format: :csv), method: 'get', enforce_utf8: false do %>
+          <%= select_tag :contact_datetime, {start_year: 2020,end_year: 2040} %>
+          <%= submit_tag 'CSV出力' %>
+        <% end %>
       </div>
 
-        <div>
-          
-        </div>
-    </body>
+      <div><%#= link_to "CSV出力", tr_contact_history_csv_path(format: :csv) %></div>
+  </body>
 
 </html>
