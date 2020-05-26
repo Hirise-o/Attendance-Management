@@ -16,7 +16,7 @@ development:
   pool: 5
   username: root
   password:
-  host: localhost
+  # host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -36,5 +36,5 @@ production:
   reconnect: false
   database: AM_app_production
   username: root
-  password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
- # host: <%= ENV['DATABASE_PRO_HOST'] %>
+  password:
+  host: localhost
