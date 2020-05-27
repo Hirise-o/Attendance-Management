@@ -25,3 +25,83 @@
   height: 90px;
   background-color: #87CEEB;
 }
+
+.cp02_ipselect {
+  overflow: hidden;
+  width: 8%;
+  text-align: center;
+}
+.cp02_ipselect select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-size: 80%;
+}
+.cp02_ipselect select::-ms-expand {
+    display: none;
+}
+.cp02_ipselect.cp_sl01 {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 2px;
+  background: #ffffff;
+}
+.cp02_ipselect.cp_sl01::before {
+  position: absolute;
+  top: 0.8em;
+  right: 0.5em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #666666;
+  pointer-events: none;
+}
+.cp02_ipselect.cp_sl01 select {
+  padding: 8px 38px 8px 8px;
+}
+
+.cp_iptxt {
+  position: relative;
+  width: 30%;
+}
+.cp_iptxt input[type='text'] {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.3em;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  color: #aaaaaa;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+}
+
+
+.btn-square02 {
+  display: inline-block;
+  padding: 6px 44px 6px 44px;
+  text-decoration: none;
+  background: #668ad8;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 25px;
+  font-size: 15px;
+}
+.btn-square02:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}

@@ -56,10 +56,22 @@
         <%= link_to '出退勤CSV出力', '/csv', class: 'class', method: :get %>
       </div>
       <div>
-        <%= form_tag tr_contact_history_csv_path(format: :csv), method: 'get', enforce_utf8: false do %>
-          <%= select_tag :contact_datetime, {start_year: 2020,end_year: 2040} %>
-          <%= submit_tag 'CSV出力' %>
-        <% end %>
+        <div class="main">
+          <p>■社員名を選択し、連絡ボタンを押下してください</p><br>
+          <%= form_for(@csv, url: {controller:'csv', action: 'create'}) do |f| %>
+          <div style="float:left;">♦︎ CSV出力年月 ： 　年　</div>
+            <div class="cp02_ipselect cp_sl01" style="float:left;"><%= f.date_select :contact_datetime, {start_year: 2020, end_year: 2040, discard_month: true, discard_day: true, } %></div>
+          <div style="float:left;">　月　</div>
+            <div class="cp02_ipselect cp_sl01"><%= f.date_select :contact_datetime, {discard_year: true, use_month_numbers: true, discard_day: true, } %></div><br>
+          <div style="float:left;">♦︎ 出力フォルダ ： 　</div>
+            <div class="cp_iptxt" style="float:left;">
+              <input type="text" value="C:￥download"><%#= text_field_tag 'Directory', '', placeholder: "C:￥download", :size=>"90x30"%></dif>
+          <% end %>
+        </div><br>
+        <%= form_tag tr_contact_history_csv_path(format: :csv), method: 'get', enforce_utf8: false do %><br>
+        <button type="submit" class="btn-square02">CSV出力</button>
+            <%#= submit_tag 'CSV出力' %>
+          <% end %>
       </div>
 
       <div><%#= link_to "CSV出力", tr_contact_history_csv_path(format: :csv) %></div>

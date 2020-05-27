@@ -31,7 +31,7 @@ class TrContactHistoryController < ApplicationController
         host: "localhost",
         username: "root",
         password: '',
-        database: "AM_app_production",
+        database: "AM_app_development",
         :encoding => 'utf8',
         stream: true,
         cache_rows: false,
