@@ -70,8 +70,7 @@ class TrContactHistoryController < ApplicationController
       end
 
       def send_posts_csv(results)
-        bom = "\uFEFF"
-        csv_data = CSV.generate(bom) do |csv|
+        csv_data = CSV.generate(force_quotes: true, encoding:Encoding::SJIS) do |csv|
           header = %w(社員番号 社員名 出勤年月日 出勤時間 退勤時間)
           csv << header
 
