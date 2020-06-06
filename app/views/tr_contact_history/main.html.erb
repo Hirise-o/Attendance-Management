@@ -57,9 +57,9 @@
       </div>
 
       <div class="main">
-        <p>■社員名を選択し、連絡ボタンを押下してください</p><br>
+        <div>■社員名を選択し、連絡ボタンを押下してください</div><br>
             <%= form_for(@history, url: {controller:'tr_contact_history', action: 'create'}) do |f| %>
-              <p style="margin-top: 8px;">♦︎ 連絡年月日 ： 　<%= @today %></p><br>
+              <div style="margin-top: 8px;">♦︎ 連絡年月日 ： 　<%= @today %></div><br>
               <div style="margin-top: 8px; float: left;">♦︎ 社員名　　 　： 　</div>
                 <div class="cp_ipselect cp_sl01" style="float: left;">
                   <%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :view_staffs) %></div>
