@@ -51,7 +51,7 @@ class TrContactHistoryController < ApplicationController
                 group by 
                  contact_registration_type, tr_contact_histories.ms_hirise_staff_id)
                  group by
-                  ms.staff_no, ms.staff_name, contact_datetime
+                  ms.staff_no, ms.staff_name, DATE_FORMAT(contact_datetime,'%Y/%m/%d')
 
        ")
 
