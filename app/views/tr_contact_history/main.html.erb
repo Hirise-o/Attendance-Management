@@ -62,10 +62,21 @@
               <div style="margin-top: 8px;">♦︎ 連絡年月日 ： 　<%= @today %></div><br>
               <div style="margin-top: 8px; float: left;">♦︎ 社員名　　 ： 　</div>
                 <div class="cp_ipselect cp_sl01" style="float: left;">
-                  <%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :view_staffs) %></div>
+                  <%= f.collection_select(:ms_hirise_staff_id, @staffs, :staff_no, :view_staffs) %>
+                </div>
               <div style="clear: both;">
                 <button type="f.submit" class="btn-square">連　絡</button>
               </div>
+                <% if flash[:success] %>
+              <div class="flash">
+                <%= flash[:success] %>
+              </div>
+                <% end %>
+                <% if flash[:notice] %>
+              <div class="flash">
+                <%= flash[:notice] %>
+              </div>
+                <% end %>
             <% end %>
       </div>
 
